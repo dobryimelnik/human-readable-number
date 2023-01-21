@@ -1,8 +1,8 @@
 module.exports = function toReadable (number) {
 
     let arr1 = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-    let arr2 = ['', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fivteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-    let arr3 = ['', 'ten', 'twenty', 'thirty', 'fourty', 'fivty', 'sixty', 'seventy', 'eighty', 'ninety'];
+    let arr2 = ['', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+    let arr3 = ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
 
 
     let num = String(number);
@@ -38,8 +38,12 @@ module.exports = function toReadable (number) {
             res = i + ' ' + arr3[y];
         } else if((y == 1) && (x != 0)) {
             res = i + ' ' + arr2[x];
-        } else {
+        } else if((y > 1) && (x == 0)) {
+            res = i + ' ' + arr3[y];
+        } else if((y > 1) && (x != 0)) {
             res = i + ' ' + arr3[y] + ' ' + arr1[x];
+        } else {
+            res = "error";
         }
     }
 
@@ -47,5 +51,5 @@ module.exports = function toReadable (number) {
 };
 
 
-console.log(module.exports(765));
+// console.log(module.exports(res));
  
